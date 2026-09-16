@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Profile Frame Maker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #222;
+        }
+
+        /* Header */
+
+        header {
+            background-color: #1877f2;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main */
+
+        main {
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        h1 {
+            color: #1877f2;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        /* Upload */
+
+        .upload {
+            margin: 15px;
+            font-size: 18px;
+            max-width: 100%;
+        }
+
+        /* Photo */
+
+        .photo-box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            max-width: 85vw;
+            max-height: 85vw;
+            margin: 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            pointer-events: none;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Frame Gallery */
+
+        .frames {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+
+        .frame-option {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        .frame-option:hover {
+            transform: scale(1.05);
+        }
+
+        .frame-option.selected {
+            border: 3px solid #1877f2;
+        }
+
+        .frame-option img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .frame-name {
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        /* Buttons */
+
+        button {
+            background-color: #1877f2;
+            color: white;
+            font-size: 18px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 8px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #0d5ec7;
+            transform: scale(1.05);
+        }
+
+        /* Sections */
+
+        .section {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #1877f2;
+        }
+
+        /* Contact Form */
+
+        form input,
+        form textarea {
+            width: 90%;
+            max-width: 500px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .photo-box {
+                width: 85vw;
+                height: 85vw;
+            }
+
+            .frame-option img {
+                width: 75px;
+                height: 75px;
+            }
+
+            button {
+                width: 90%;
+                max-width: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+            My Frame
+        </div>
+
+        <nav>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Main -->
+
+    <main id="home">
+
+        <h1>
+            Profile Frame Maker
+        </h1>
+
+        <p>
+            خپل عکس انتخاب کړئ او خپل خوښ Frame پرې واچوئ
+        </p>
+
+
+        <!-- Upload Photo -->
+
+        <input
+            class="upload"
+            type="file"
+            id="photoUpload"
+            accept="image/*"
+            onchange="loadPhoto()"
+        >
+
+
+        <!-- Photo Area -->
+
+        <div class="photo-box">
+
+            <img
+                class="photo"
+                id="userPhoto"
+                src="photo.jpg"
+            >
+
+            <div
+                class="frame"
+                id="myFrame"
+            >
+
+                <img
+                    id="frameImage"
+                    src="frame1.png"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Frame Selection -->
+
+        <h2>
+            Choose Your Frame
+        </h2>
+
+
+        <div class="frames">
+
+
+            <div
+                class="frame-option"
+                id="option1"
+                onclick="selectFrame('frame1.png', 'option1')"
+            >
+
+                <img src="frame1.png">
+
+                <div class="frame-name">
+                    Frame 1
+                </div>
+
+            </div>
+
+
+            <div
+                class="frame-option"
+                id="option2"
+                onclick="selectFrame('frame2.png', 'option2')"
+            >
+
+                <img src="frame2.png">
+
+                <div class="frame-name">
+                    Frame 2
+                </div>
+
+            </div>
+
+
+            <div
+                class="frame-option"
+                id="option3"
+                onclick="selectFrame('frame3.png', 'option3')"
+            >
+
+                <img src="frame3.png">
+
+                <div class="frame-name">
+                    Frame 3
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <button onclick="showFrame()">
+            Try It
+        </button>
+
+
+        <button onclick="hideFrame()">
+            Remove Frame
+        </button>
+
+
+        <button onclick="downloadPhoto()">
+            Download Photo
+        </button>
+
+
+        <canvas
+            id="canvas"
+            style="display:none;">
+        </canvas>
+
+
+    </main>
+
+
+    <!-- About -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+        <h2>
+            About
+        </h2>
+
+        <p>
+            This website allows users to upload
+            their profile photo, select a frame,
+            and download the final image.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section
+        class="section"
+        id="contact"
+    >
+
+        <h2>
+            Contact Us
+        </h2>
+
+        <p>
+            خپل معلومات ولیکئ
+        </p>
+
+
+        <!-- Formspree Contact Form -->
+
+        <form
+            action="https://formspree.io/f/mbglrjkp"
+            method="POST"
+        >
+
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+
+            <br>
+            <br>
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
+
+
+            <br>
+            <br>
+
+
+            <textarea
+                name="message"
+                placeholder="Write your message"
+                required
+            ></textarea>
+
+
+            <br>
+            <br>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 My Frame
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+
+        function loadPhoto() {
+
+            var file =
+                document.getElementById("photoUpload").files[0];
+
+            if (file) {
+
+                var photoURL =
+                    URL.createObjectURL(file);
+
+                document.getElementById("userPhoto").src =
+                    photoURL;
+
+            }
+
+        }
+
+
+        function selectFrame(frameName, optionID) {
+
+            document.getElementById("frameImage").src =
+                frameName;
+
+            document.getElementById("myFrame").style.display =
+                "block";
+
+
+            document.getElementById("option1")
+                .classList.remove("selected");
+
+            document.getElementById("option2")
+                .classList.remove("selected");
+
+            document.getElementById("option3")
+                .classList.remove("selected");
+
+
+            document.getElementById(optionID)
+                .classList.add("selected");
+
+        }
+
+
+        function showFrame() {
+
+            document.getElementById("myFrame").style.display =
+                "block";
+
+        }
+
+
+        function hideFrame() {
+
+            document.getElementById("myFrame").style.display =
+                "none";
+
+        }
+
+
+        function downloadPhoto() {
+
+            var photo =
+                document.getElementById("userPhoto");
+
+            var frame =
+                document.getElementById("frameImage");
+
+            var canvas =
+                document.getElementById("canvas");
+
+            var context =
+                canvas.getContext("2d");
+
+
+            canvas.width = 800;
+
+            canvas.height = 800;
+
+
+            context.save();
+
+
+            context.beginPath();
+
+
+            context.arc(
+                400,
+                400,
+                400,
+                0,
+                Math.PI * 2
+            );
+
+
+            context.clip();
+
+
+            context.drawImage(
+                photo,
+                0,
+                0,
+                800,
+                800
+            );
+
+
+            context.drawImage(
+                frame,
+                0,
+                0,
+                800,
+                800
+            );
+
+
+            context.restore();
+
+
+            var link =
+                document.createElement("a");
+
+
+            link.download =
+                "my-profile-frame.png";
+
+
+            link.href =
+                canvas.toDataURL("image/png");
+
+
+            link.click();
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
