@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Profile Frame Maker</title>
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
 
 * {
     box-sizing: border-box;
@@ -24,7 +31,10 @@ body {
     color: #222;
 }
 
-/* Navigation */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     background: #111827;
@@ -43,7 +53,10 @@ nav a:hover {
     color: #60a5fa;
 }
 
-/* Main */
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
     width: 95%;
@@ -51,7 +64,10 @@ nav a:hover {
     margin: auto;
 }
 
-/* Hero */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     background: white;
@@ -64,42 +80,44 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 20px;
-    line-height: 2;
-}
 
-/* Pashto */
+/* =========================
+   PASHTO TEXT
+========================= */
 
-.pashto {
+.ps {
     direction: rtl;
     text-align: center;
-    unicode-bidi: plaintext;
     font-family: Tahoma, Arial, sans-serif;
-    line-height: 2;
+    line-height: 2.2;
+    font-size: 20px;
+    unicode-bidi: plaintext;
 }
 
-.pashto-right {
+.ps-right {
     direction: rtl;
     text-align: right;
-    unicode-bidi: plaintext;
     font-family: Tahoma, Arial, sans-serif;
-    line-height: 2;
+    line-height: 2.2;
+    unicode-bidi: plaintext;
 }
 
-/* English words inside Pashto */
 
-bdi {
-    unicode-bidi: isolate;
-}
+/*
+   English words inside Pashto
+*/
 
-.english {
+.ps .en {
     direction: ltr;
     unicode-bidi: isolate;
     display: inline-block;
+    font-family: Arial, sans-serif;
 }
 
-/* Buttons */
+
+/* =========================
+   BUTTON
+========================= */
 
 .button {
     display: inline-block;
@@ -118,7 +136,10 @@ bdi {
     background: #1d4ed8;
 }
 
-/* Frame Maker */
+
+/* =========================
+   FRAME MAKER
+========================= */
 
 .frame-maker {
     background: white;
@@ -133,12 +154,15 @@ bdi {
     margin-bottom: 10px;
 }
 
+
+/* =========================
+   UPLOAD
+========================= */
+
 .upload-area {
     text-align: center;
     margin: 25px 0;
 }
-
-/* Upload */
 
 .upload-btn {
     display: inline-block;
@@ -158,7 +182,10 @@ bdi {
     display: none;
 }
 
-/* Photo Area */
+
+/* =========================
+   PHOTO AREA
+========================= */
 
 .photo-area {
     display: flex;
@@ -201,7 +228,10 @@ bdi {
     pointer-events: none;
 }
 
-/* Controls */
+
+/* =========================
+   CONTROLS
+========================= */
 
 .controls {
     text-align: center;
@@ -218,7 +248,10 @@ bdi {
     margin: 15px;
 }
 
-/* Move buttons */
+
+/* =========================
+   MOVE BUTTONS
+========================= */
 
 .move-buttons {
     margin-top: 15px;
@@ -240,7 +273,10 @@ bdi {
     background: #111827;
 }
 
-/* Frames */
+
+/* =========================
+   FRAME LIST
+========================= */
 
 .frames {
     margin-top: 35px;
@@ -277,7 +313,10 @@ bdi {
     border-color: #16a34a;
 }
 
-/* Sections */
+
+/* =========================
+   SECTIONS
+========================= */
 
 section {
     padding: 50px 20px;
@@ -288,7 +327,10 @@ section {
     margin-bottom: 25px;
 }
 
-/* How it works */
+
+/* =========================
+   HOW IT WORKS
+========================= */
 
 .steps {
     display: flex;
@@ -320,7 +362,10 @@ section {
     font-weight: bold;
 }
 
-/* About */
+
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     background: white;
@@ -332,7 +377,10 @@ section {
     font-size: 18px;
 }
 
-/* Contact */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact {
     background: #f3f4f6;
@@ -357,7 +405,10 @@ section {
     height: 130px;
 }
 
-/* Footer */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #111827;
@@ -366,7 +417,10 @@ footer {
     padding: 25px;
 }
 
-/* Popup */
+
+/* =========================
+   POPUP
+========================= */
 
 .popup {
     position: fixed;
@@ -384,11 +438,10 @@ footer {
     z-index: 9999;
 }
 
-.popup h3 {
-    margin-top: 0;
-}
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -396,7 +449,7 @@ footer {
         font-size: 28px;
     }
 
-    .hero p {
+    .hero .ps {
         font-size: 17px;
     }
 
@@ -413,39 +466,74 @@ footer {
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- Navigation -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
 <a href="#home">Home</a>
+
 <a href="#frame-maker">Create</a>
+
 <a href="#about">About</a>
+
 <a href="#contact">Contact</a>
 
 </nav>
 
 
-<!-- Hero -->
+
+<!-- =========================
+     HOME
+========================= -->
 
 <section class="hero" id="home">
 
 <div class="container">
 
-<h1>Create Your Profile Frame</h1>
+<h1>
+Create Your Profile Frame
+</h1>
 
-<p class="pashto" lang="ps">
-خپل عکس
-<bdi class="english" dir="ltr">Upload</bdi>
-کړئ، خپل خوښ
-<bdi class="english" dir="ltr">Frame</bdi>
-انتخاب کړئ او په اسانۍ سره یې
-<bdi class="english" dir="ltr">Download</bdi>
-کړئ.
+
+<!--
+     IMPORTANT:
+     Each English word is isolated
+     from the Pashto text.
+-->
+
+<p class="ps" lang="ps">
+
+<span>خپل عکس</span>
+
+<span class="en" dir="ltr">
+Upload
+</span>
+
+<span>کړئ، خپل خوښ</span>
+
+<span class="en" dir="ltr">
+Frame
+</span>
+
+<span>انتخاب کړئ او په اسانۍ سره یې</span>
+
+<span class="en" dir="ltr">
+Download
+</span>
+
+<span>کړئ.</span>
+
 </p>
+
 
 <a href="#frame-maker" class="button">
 Try It Now
@@ -456,7 +544,10 @@ Try It Now
 </section>
 
 
-<!-- Frame Maker -->
+
+<!-- =========================
+     FRAME MAKER
+========================= -->
 
 <section id="frame-maker">
 
@@ -464,22 +555,39 @@ Try It Now
 
 <div class="frame-maker">
 
-<h2>Profile Frame Maker</h2>
 
-<p class="pashto">
-خپل عکس انتخاب کړئ او خپل خوښ
-<bdi class="english" dir="ltr">Frame</bdi>
-پرې واچوئ
+<h2>
+Profile Frame Maker
+</h2>
+
+
+<p class="ps" lang="ps">
+
+<span>خپل عکس انتخاب کړئ او خپل خوښ</span>
+
+<span class="en" dir="ltr">
+Frame
+</span>
+
+<span>پرې واچوئ.</span>
+
 </p>
 
 
-<!-- Upload -->
+
+<!-- UPLOAD -->
 
 <div class="upload-area">
 
-<label for="photoInput" class="upload-btn">
+<label
+for="photoInput"
+class="upload-btn"
+>
+
 📷 Upload Photo
+
 </label>
+
 
 <input
 type="file"
@@ -491,22 +599,34 @@ accept="image/*"
 </div>
 
 
-<!-- Photo -->
+
+<!-- PHOTO -->
 
 <div class="photo-area">
 
-<div class="photo-box" id="photoBox">
+<div
+class="photo-box"
+id="photoBox"
+>
 
-<img id="userPhoto" alt="Your Photo">
+<img
+id="userPhoto"
+alt="Your Photo"
+>
 
-<img id="frameImage" src="frame1.png" alt="Frame">
+<img
+id="frameImage"
+src="frame1.png"
+alt="Frame"
+>
 
 </div>
 
 </div>
 
 
-<!-- Controls -->
+
+<!-- CONTROLS -->
 
 <div class="controls">
 
@@ -528,29 +648,47 @@ value="1"
 
 <br>
 
+
 <div class="move-buttons">
 
-<button type="button" onclick="movePhoto(0,-10)">
+<button
+type="button"
+onclick="movePhoto(0,-10)"
+>
 ↑
 </button>
 
 <br>
 
-<button type="button" onclick="movePhoto(-10,0)">
+<button
+type="button"
+onclick="movePhoto(-10,0)"
+>
 ←
 </button>
 
-<button type="button" onclick="resetPhoto()">
+
+<button
+type="button"
+onclick="resetPhoto()"
+>
 Reset
 </button>
 
-<button type="button" onclick="movePhoto(10,0)">
+
+<button
+type="button"
+onclick="movePhoto(10,0)"
+>
 →
 </button>
 
 <br>
 
-<button type="button" onclick="movePhoto(0,10)">
+<button
+type="button"
+onclick="movePhoto(0,10)"
+>
 ↓
 </button>
 
@@ -559,43 +697,52 @@ Reset
 </div>
 
 
-<!-- Frames -->
+
+<!-- FRAMES -->
 
 <div class="frames">
 
-<h2>Choose Your Frame</h2>
+<h2>
+Choose Your Frame
+</h2>
+
 
 <div class="frame-list">
+
 
 <img
 src="frame1.png"
 class="frame-option selected"
-onclick="selectFrame(this, 'frame1.png')"
+onclick="selectFrame(this,'frame1.png')"
 alt="Frame 1"
 >
+
 
 <img
 src="frame2.png"
 class="frame-option"
-onclick="selectFrame(this, 'frame2.png')"
+onclick="selectFrame(this,'frame2.png')"
 alt="Frame 2"
 >
+
 
 <img
 src="frame3.png"
 class="frame-option"
-onclick="selectFrame(this, 'frame3.png')"
+onclick="selectFrame(this,'frame3.png')"
 alt="Frame 3"
 >
 
-</div>
 
 </div>
 
+</div>
 
-<!-- Main Buttons -->
 
-<div style="text-align:center; margin-top:30px;">
+
+<!-- BUTTONS -->
+
+<div style="text-align:center;margin-top:30px;">
 
 <button
 type="button"
@@ -605,6 +752,7 @@ onclick="showTryMessage()"
 Try It
 </button>
 
+
 <button
 type="button"
 class="button"
@@ -612,6 +760,7 @@ onclick="removeFrame()"
 >
 Remove Frame
 </button>
+
 
 <button
 type="button"
@@ -623,6 +772,7 @@ Download Photo
 
 </div>
 
+
 </div>
 
 </div>
@@ -630,18 +780,25 @@ Download Photo
 </section>
 
 
-<!-- How It Works -->
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
 
 <section id="how-it-works">
 
 <div class="container">
 
+
 <h2 class="section-title">
 How It Works
 </h2>
 
+
 <div class="steps">
 
+
+<!-- STEP 1 -->
 
 <div class="step">
 
@@ -649,18 +806,28 @@ How It Works
 1
 </div>
 
-<h3>Upload Photo</h3>
+<h3>
+Upload Photo
+</h3>
 
-<p class="pashto">
-خپل
-<bdi class="english" dir="ltr">Profile</bdi>
-عکس
-<bdi class="english" dir="ltr">Upload</bdi>
-کړئ.
+
+<p class="ps" lang="ps">
+
+<span>خپل عکس</span>
+
+<span class="en" dir="ltr">
+Upload
+</span>
+
+<span>کړئ.</span>
+
 </p>
 
 </div>
 
+
+
+<!-- STEP 2 -->
 
 <div class="step">
 
@@ -668,18 +835,34 @@ How It Works
 2
 </div>
 
-<h3>Choose Frame</h3>
+<h3>
+Choose Frame
+</h3>
 
-<p class="pashto">
-له موجودو
-<bdi class="english" dir="ltr">Frames</bdi>
-څخه خپل خوښ
-<bdi class="english" dir="ltr">Frame</bdi>
-انتخاب کړئ.
+
+<p class="ps" lang="ps">
+
+<span>له موجودو</span>
+
+<span class="en" dir="ltr">
+Frames
+</span>
+
+<span>څخه خپل خوښ</span>
+
+<span class="en" dir="ltr">
+Frame
+</span>
+
+<span>انتخاب کړئ.</span>
+
 </p>
 
 </div>
 
+
+
+<!-- STEP 3 -->
 
 <div class="step">
 
@@ -687,12 +870,21 @@ How It Works
 3
 </div>
 
-<h3>Download</h3>
+<h3>
+Download
+</h3>
 
-<p class="pashto">
-خپل جوړ شوی عکس
-<bdi class="english" dir="ltr">Download</bdi>
-کړئ.
+
+<p class="ps" lang="ps">
+
+<span>خپل جوړ شوی عکس</span>
+
+<span class="en" dir="ltr">
+Download
+</span>
+
+<span>کړئ.</span>
+
 </p>
 
 </div>
@@ -705,43 +897,69 @@ How It Works
 </section>
 
 
-<!-- About -->
 
-<section class="about" id="about">
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+class="about"
+id="about"
+>
 
 <div class="container">
+
 
 <h2 class="section-title">
 About
 </h2>
+
 
 <p>
 This website allows users to upload their profile photo,
 select a frame, and download the final image.
 </p>
 
-<p class="pashto">
-زموږ هدف دا دی چې د
-<bdi class="english" dir="ltr">Profile Frame</bdi>
+
+<p class="ps" lang="ps">
+
+<span>زموږ هدف دا دی چې د</span>
+
+<span class="en" dir="ltr">
+Profile Frame
+</span>
+
+<span>
 جوړول ساده، چټک او د هر چا لپاره اسانه وي.
+</span>
+
 </p>
+
 
 </div>
 
 </section>
 
 
-<!-- Contact -->
 
-<section class="contact" id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+class="contact"
+id="contact"
+>
 
 <div class="container">
+
 
 <h2 class="section-title">
 Contact Us
 </h2>
 
-<p class="pashto">
+
+<p class="ps" lang="ps">
 خپل معلومات ولیکئ
 </p>
 
@@ -752,12 +970,14 @@ action="https://formspree.io/f/mbglrjkp"
 method="POST"
 >
 
+
 <input
 type="text"
 name="name"
 placeholder="Your Name"
 required
 >
+
 
 <input
 type="email"
@@ -766,11 +986,13 @@ placeholder="Your Email"
 required
 >
 
+
 <textarea
 name="message"
 placeholder="Your Message"
 required
 ></textarea>
+
 
 <button
 type="submit"
@@ -779,14 +1001,19 @@ class="button"
 Send Message
 </button>
 
+
 </form>
+
 
 </div>
 
 </section>
 
 
-<!-- Footer -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -801,15 +1028,25 @@ Profile Frame Maker
 </footer>
 
 
-<!-- Popup -->
 
-<div class="popup" id="popup">
+<!-- =========================
+     POPUP
+========================= -->
 
-<h3>Profile Frame</h3>
+<div
+class="popup"
+id="popup"
+>
 
-<p class="pashto">
+<h3>
+Profile Frame
+</h3>
+
+
+<p class="ps" lang="ps">
 ستاسو عکس تیار دی.
 </p>
+
 
 <button
 type="button"
@@ -819,12 +1056,21 @@ onclick="closePopup()"
 OK
 </button>
 
+
 </div>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-/* Variables */
+
+/* =========================
+   VARIABLES
+========================= */
 
 let selectedFrame = "frame1.png";
 
@@ -837,78 +1083,146 @@ let photoY = 0;
 let uploadedPhoto = false;
 
 
-/* Photo Input */
 
-const photoInput = document.getElementById("photoInput");
+/* =========================
+   ELEMENTS
+========================= */
 
-const userPhoto = document.getElementById("userPhoto");
-
-const frameImage = document.getElementById("frameImage");
-
-const zoom = document.getElementById("zoom");
+const photoInput =
+document.getElementById("photoInput");
 
 
-photoInput.addEventListener("change", function(event) {
+const userPhoto =
+document.getElementById("userPhoto");
 
-    const file = event.target.files[0];
+
+const frameImage =
+document.getElementById("frameImage");
+
+
+const zoom =
+document.getElementById("zoom");
+
+
+const photoBox =
+document.getElementById("photoBox");
+
+
+
+/* =========================
+   UPLOAD PHOTO
+========================= */
+
+photoInput.addEventListener(
+"change",
+function(event) {
+
+    const file =
+    event.target.files[0];
 
     if (!file) {
         return;
     }
 
-    const reader = new FileReader();
 
-    reader.onload = function(e) {
+    const reader =
+    new FileReader();
 
-        userPhoto.src = e.target.result;
 
-        userPhoto.style.display = "block";
+    reader.onload =
+    function(e) {
 
-        uploadedPhoto = true;
+        userPhoto.src =
+        e.target.result;
+
+
+        userPhoto.style.display =
+        "block";
+
+
+        uploadedPhoto =
+        true;
+
 
         resetPhoto();
 
     };
+
 
     reader.readAsDataURL(file);
 
 });
 
 
-/* Frame Selection */
 
-function selectFrame(element, frame) {
+/* =========================
+   SELECT FRAME
+========================= */
 
-    selectedFrame = frame;
+function selectFrame(
+    element,
+    frame
+) {
 
-    frameImage.src = frame;
+    selectedFrame =
+    frame;
+
+
+    frameImage.src =
+    frame;
+
+
+    frameImage.style.display =
+    "block";
+
 
     const allFrames =
-        document.querySelectorAll(".frame-option");
+    document.querySelectorAll(
+        ".frame-option"
+    );
 
-    allFrames.forEach(function(item) {
 
-        item.classList.remove("selected");
+    allFrames.forEach(
+    function(item) {
+
+        item.classList.remove(
+            "selected"
+        );
 
     });
 
-    element.classList.add("selected");
+
+    element.classList.add(
+        "selected"
+    );
 
 }
 
 
-/* Zoom */
 
-zoom.addEventListener("input", function() {
+/* =========================
+   ZOOM
+========================= */
 
-    zoomValue = parseFloat(this.value);
+zoom.addEventListener(
+"input",
+function() {
+
+    zoomValue =
+    parseFloat(
+        this.value
+    );
+
 
     updatePhoto();
 
 });
 
 
-/* Update Photo */
+
+/* =========================
+   UPDATE PHOTO
+========================= */
 
 function updatePhoto() {
 
@@ -924,80 +1238,129 @@ function updatePhoto() {
 }
 
 
-/* Move Photo */
 
-function movePhoto(x, y) {
+/* =========================
+   MOVE PHOTO
+========================= */
+
+function movePhoto(
+    x,
+    y
+) {
+
+    if (!uploadedPhoto) {
+        return;
+    }
+
 
     photoX += x;
 
     photoY += y;
 
+
     updatePhoto();
 
 }
 
 
-/* Reset */
+
+/* =========================
+   RESET PHOTO
+========================= */
 
 function resetPhoto() {
 
-    zoomValue = 1;
+    zoomValue =
+    1;
 
-    photoX = 0;
 
-    photoY = 0;
+    photoX =
+    0;
 
-    zoom.value = 1;
+
+    photoY =
+    0;
+
+
+    zoom.value =
+    1;
+
 
     updatePhoto();
 
 }
 
 
-/* Remove Frame */
+
+/* =========================
+   REMOVE FRAME
+========================= */
 
 function removeFrame() {
 
-    frameImage.style.display = "none";
+    frameImage.style.display =
+    "none";
 
 }
 
 
-/* Try Button */
+
+/* =========================
+   TRY BUTTON
+========================= */
 
 function showTryMessage() {
 
     if (!uploadedPhoto) {
 
-        alert("Please upload a photo first.");
+        alert(
+            "Please upload a photo first."
+        );
 
         return;
 
     }
 
-    frameImage.style.display = "block";
 
-    document.getElementById("popup").style.display = "block";
+    frameImage.style.display =
+    "block";
+
+
+    document.getElementById(
+        "popup"
+    ).style.display =
+    "block";
 
 }
 
 
-/* Close Popup */
+
+/* =========================
+   CLOSE POPUP
+========================= */
 
 function closePopup() {
 
-    document.getElementById("popup").style.display = "none";
+    document.getElementById(
+        "popup"
+    ).style.display =
+    "none";
 
 }
 
 
-/* Download */
+
+/* =========================
+   DOWNLOAD
+========================= */
 
 function downloadPhoto() {
 
     if (!uploadedPhoto) {
 
-        alert("Please upload a photo first.");
+        alert(
+            "Please upload a photo first."
+        );
 
         return;
 
@@ -1005,28 +1368,44 @@ function downloadPhoto() {
 
 
     const canvas =
-        document.createElement("canvas");
-
-    const size = 1000;
-
-    canvas.width = size;
-
-    canvas.height = size;
+    document.createElement(
+        "canvas"
+    );
 
 
-    const ctx = canvas.getContext("2d");
+    const size =
+    1000;
 
 
-    const photo = new Image();
+    canvas.width =
+    size;
 
-    const frame = new Image();
+
+    canvas.height =
+    size;
 
 
-    photo.onload = function() {
+    const ctx =
+    canvas.getContext(
+        "2d"
+    );
 
-        frame.onload = function() {
 
-            /* Background */
+    const photo =
+    new Image();
+
+
+    const frame =
+    new Image();
+
+
+    photo.onload =
+    function() {
+
+
+        frame.onload =
+        function() {
+
 
             ctx.clearRect(
                 0,
@@ -1036,26 +1415,26 @@ function downloadPhoto() {
             );
 
 
-            /* Photo */
-
             const scale =
-                size / 400;
+            size / 400;
+
 
             const drawWidth =
-                size * zoomValue;
+            size * zoomValue;
+
 
             const drawHeight =
-                size * zoomValue;
+            size * zoomValue;
 
 
             const drawX =
-                (size - drawWidth) / 2 +
-                photoX * scale;
+            (size - drawWidth) / 2 +
+            photoX * scale;
 
 
             const drawY =
-                (size - drawHeight) / 2 +
-                photoY * scale;
+            (size - drawHeight) / 2 +
+            photoY * scale;
 
 
             ctx.drawImage(
@@ -1067,8 +1446,6 @@ function downloadPhoto() {
             );
 
 
-            /* Frame */
-
             ctx.drawImage(
                 frame,
                 0,
@@ -1078,106 +1455,137 @@ function downloadPhoto() {
             );
 
 
-            /* Download */
-
             const link =
-                document.createElement("a");
+            document.createElement(
+                "a"
+            );
+
 
             link.download =
-                "profile-frame.png";
+            "profile-frame.png";
+
 
             link.href =
-                canvas.toDataURL("image/png");
+            canvas.toDataURL(
+                "image/png"
+            );
+
 
             link.click();
 
         };
 
 
-        frame.src = selectedFrame;
+        frame.src =
+        selectedFrame;
 
     };
 
 
-    photo.src = userPhoto.src;
+    photo.src =
+    userPhoto.src;
 
 }
 
 
-/* Drag Photo */
 
-const photoBox =
-    document.getElementById("photoBox");
+/* =========================
+   DRAG PHOTO
+========================= */
 
-let dragging = false;
-
-let startX = 0;
-
-let startY = 0;
+let dragging =
+false;
 
 
-photoBox.addEventListener(
-    "pointerdown",
-    function(event) {
+let startX =
+0;
 
-        if (!uploadedPhoto) {
-            return;
-        }
 
-        dragging = true;
+let startY =
+0;
 
-        startX = event.clientX - photoX;
-
-        startY = event.clientY - photoY;
-
-        photoBox.setPointerCapture(
-            event.pointerId
-        );
-
-    }
-);
 
 
 photoBox.addEventListener(
-    "pointermove",
-    function(event) {
+"pointerdown",
+function(event) {
 
-        if (!dragging) {
-            return;
-        }
-
-        photoX =
-            event.clientX - startX;
-
-        photoY =
-            event.clientY - startY;
-
-        updatePhoto();
-
+    if (!uploadedPhoto) {
+        return;
     }
-);
+
+
+    dragging =
+    true;
+
+
+    startX =
+    event.clientX -
+    photoX;
+
+
+    startY =
+    event.clientY -
+    photoY;
+
+
+    photoBox.setPointerCapture(
+        event.pointerId
+    );
+
+});
+
 
 
 photoBox.addEventListener(
-    "pointerup",
-    function() {
+"pointermove",
+function(event) {
 
-        dragging = false;
-
+    if (!dragging) {
+        return;
     }
-);
+
+
+    photoX =
+    event.clientX -
+    startX;
+
+
+    photoY =
+    event.clientY -
+    startY;
+
+
+    updatePhoto();
+
+});
+
 
 
 photoBox.addEventListener(
-    "pointercancel",
-    function() {
+"pointerup",
+function() {
 
-        dragging = false;
+    dragging =
+    false;
 
-    }
-);
+});
+
+
+
+photoBox.addEventListener(
+"pointercancel",
+function() {
+
+    dragging =
+    false;
+
+});
+
 
 </script>
 
+
 </body>
+
 </html>
