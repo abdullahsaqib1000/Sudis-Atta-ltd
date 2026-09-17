@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ps" dir="ltr">
 
 <head>
 
@@ -82,10 +82,10 @@ nav a:hover {
 
 
 /* =========================
-   PASHTO TEXT
+   PURE PASHTO
 ========================= */
 
-.ps {
+.pashto {
     direction: rtl;
     text-align: center;
     font-family: Tahoma, Arial, sans-serif;
@@ -94,7 +94,7 @@ nav a:hover {
     unicode-bidi: plaintext;
 }
 
-.ps-right {
+.pashto-right {
     direction: rtl;
     text-align: right;
     font-family: Tahoma, Arial, sans-serif;
@@ -103,20 +103,8 @@ nav a:hover {
 }
 
 
-/*
-   English words inside Pashto
-*/
-
-.ps .en {
-    direction: ltr;
-    unicode-bidi: isolate;
-    display: inline-block;
-    font-family: Arial, sans-serif;
-}
-
-
 /* =========================
-   BUTTON
+   BUTTONS
 ========================= */
 
 .button {
@@ -275,7 +263,7 @@ nav a:hover {
 
 
 /* =========================
-   FRAME LIST
+   FRAMES
 ========================= */
 
 .frames {
@@ -449,7 +437,7 @@ footer {
         font-size: 28px;
     }
 
-    .hero .ps {
+    .pashto {
         font-size: 17px;
     }
 
@@ -473,9 +461,7 @@ footer {
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -491,9 +477,7 @@ footer {
 
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <section class="hero" id="home">
 
@@ -504,38 +488,15 @@ Create Your Profile Frame
 </h1>
 
 
-<!--
-     IMPORTANT:
-     Each English word is isolated
-     from the Pashto text.
--->
-
-<p class="ps" lang="ps">
-
-<span>خپل عکس</span>
-
-<span class="en" dir="ltr">
-Upload
-</span>
-
-<span>کړئ، خپل خوښ</span>
-
-<span class="en" dir="ltr">
-Frame
-</span>
-
-<span>انتخاب کړئ او په اسانۍ سره یې</span>
-
-<span class="en" dir="ltr">
-Download
-</span>
-
-<span>کړئ.</span>
-
+<p class="pashto" lang="ps">
+خپل عکس پورته کړئ، خپل خوښ چوکاټ وټاکئ او عکس په اسانۍ سره ښکته کړئ.
 </p>
 
 
-<a href="#frame-maker" class="button">
+<a
+href="#frame-maker"
+class="button"
+>
 Try It Now
 </a>
 
@@ -545,9 +506,7 @@ Try It Now
 
 
 
-<!-- =========================
-     FRAME MAKER
-========================= -->
+<!-- FRAME MAKER -->
 
 <section id="frame-maker">
 
@@ -561,16 +520,8 @@ Profile Frame Maker
 </h2>
 
 
-<p class="ps" lang="ps">
-
-<span>خپل عکس انتخاب کړئ او خپل خوښ</span>
-
-<span class="en" dir="ltr">
-Frame
-</span>
-
-<span>پرې واچوئ.</span>
-
+<p class="pashto" lang="ps">
+خپل عکس انتخاب کړئ او خپل خوښ چوکاټ پرې واچوئ.
 </p>
 
 
@@ -583,9 +534,7 @@ Frame
 for="photoInput"
 class="upload-btn"
 >
-
 📷 Upload Photo
-
 </label>
 
 
@@ -781,9 +730,7 @@ Download Photo
 
 
 
-<!-- =========================
-     HOW IT WORKS
-========================= -->
+<!-- HOW IT WORKS -->
 
 <section id="how-it-works">
 
@@ -798,8 +745,6 @@ How It Works
 <div class="steps">
 
 
-<!-- STEP 1 -->
-
 <div class="step">
 
 <div class="step-number">
@@ -810,24 +755,13 @@ How It Works
 Upload Photo
 </h3>
 
-
-<p class="ps" lang="ps">
-
-<span>خپل عکس</span>
-
-<span class="en" dir="ltr">
-Upload
-</span>
-
-<span>کړئ.</span>
-
+<p class="pashto" lang="ps">
+خپل عکس پورته کړئ.
 </p>
 
 </div>
 
 
-
-<!-- STEP 2 -->
 
 <div class="step">
 
@@ -839,30 +773,13 @@ Upload
 Choose Frame
 </h3>
 
-
-<p class="ps" lang="ps">
-
-<span>له موجودو</span>
-
-<span class="en" dir="ltr">
-Frames
-</span>
-
-<span>څخه خپل خوښ</span>
-
-<span class="en" dir="ltr">
-Frame
-</span>
-
-<span>انتخاب کړئ.</span>
-
+<p class="pashto" lang="ps">
+له موجودو چوکاټونو څخه خپل خوښ چوکاټ انتخاب کړئ.
 </p>
 
 </div>
 
 
-
-<!-- STEP 3 -->
 
 <div class="step">
 
@@ -874,17 +791,8 @@ Frame
 Download
 </h3>
 
-
-<p class="ps" lang="ps">
-
-<span>خپل جوړ شوی عکس</span>
-
-<span class="en" dir="ltr">
-Download
-</span>
-
-<span>کړئ.</span>
-
+<p class="pashto" lang="ps">
+خپل جوړ شوی عکس ښکته کړئ.
 </p>
 
 </div>
@@ -898,9 +806,7 @@ Download
 
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section
 class="about"
@@ -921,18 +827,8 @@ select a frame, and download the final image.
 </p>
 
 
-<p class="ps" lang="ps">
-
-<span>زموږ هدف دا دی چې د</span>
-
-<span class="en" dir="ltr">
-Profile Frame
-</span>
-
-<span>
-جوړول ساده، چټک او د هر چا لپاره اسانه وي.
-</span>
-
+<p class="pashto" lang="ps">
+زموږ هدف دا دی چې د عکس چوکاټ جوړول ساده، چټک او د هر چا لپاره اسانه وي.
 </p>
 
 
@@ -942,9 +838,7 @@ Profile Frame
 
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
 <section
 class="contact"
@@ -959,8 +853,8 @@ Contact Us
 </h2>
 
 
-<p class="ps" lang="ps">
-خپل معلومات ولیکئ
+<p class="pashto" lang="ps">
+خپل معلومات ولیکئ.
 </p>
 
 
@@ -1011,9 +905,7 @@ Send Message
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1029,9 +921,7 @@ Profile Frame Maker
 
 
 
-<!-- =========================
-     POPUP
-========================= -->
+<!-- POPUP -->
 
 <div
 class="popup"
@@ -1043,7 +933,7 @@ Profile Frame
 </h3>
 
 
-<p class="ps" lang="ps">
+<p class="pashto" lang="ps">
 ستاسو عکس تیار دی.
 </p>
 
@@ -1061,16 +951,10 @@ OK
 
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
 
-/* =========================
-   VARIABLES
-========================= */
+/* VARIABLES */
 
 let selectedFrame = "frame1.png";
 
@@ -1083,35 +967,25 @@ let photoY = 0;
 let uploadedPhoto = false;
 
 
-
-/* =========================
-   ELEMENTS
-========================= */
+/* ELEMENTS */
 
 const photoInput =
 document.getElementById("photoInput");
 
-
 const userPhoto =
 document.getElementById("userPhoto");
-
 
 const frameImage =
 document.getElementById("frameImage");
 
-
 const zoom =
 document.getElementById("zoom");
-
 
 const photoBox =
 document.getElementById("photoBox");
 
 
-
-/* =========================
-   UPLOAD PHOTO
-========================= */
+/* UPLOAD PHOTO */
 
 photoInput.addEventListener(
 "change",
@@ -1124,10 +998,8 @@ function(event) {
         return;
     }
 
-
     const reader =
     new FileReader();
-
 
     reader.onload =
     function(e) {
@@ -1135,29 +1007,22 @@ function(event) {
         userPhoto.src =
         e.target.result;
 
-
         userPhoto.style.display =
         "block";
-
 
         uploadedPhoto =
         true;
 
-
         resetPhoto();
 
     };
-
 
     reader.readAsDataURL(file);
 
 });
 
 
-
-/* =========================
-   SELECT FRAME
-========================= */
+/* SELECT FRAME */
 
 function selectFrame(
     element,
@@ -1167,20 +1032,16 @@ function selectFrame(
     selectedFrame =
     frame;
 
-
     frameImage.src =
     frame;
 
-
     frameImage.style.display =
     "block";
-
 
     const allFrames =
     document.querySelectorAll(
         ".frame-option"
     );
-
 
     allFrames.forEach(
     function(item) {
@@ -1191,7 +1052,6 @@ function selectFrame(
 
     });
 
-
     element.classList.add(
         "selected"
     );
@@ -1199,30 +1059,21 @@ function selectFrame(
 }
 
 
-
-/* =========================
-   ZOOM
-========================= */
+/* ZOOM */
 
 zoom.addEventListener(
 "input",
 function() {
 
     zoomValue =
-    parseFloat(
-        this.value
-    );
-
+    parseFloat(this.value);
 
     updatePhoto();
 
 });
 
 
-
-/* =========================
-   UPDATE PHOTO
-========================= */
+/* UPDATE PHOTO */
 
 function updatePhoto() {
 
@@ -1238,10 +1089,7 @@ function updatePhoto() {
 }
 
 
-
-/* =========================
-   MOVE PHOTO
-========================= */
+/* MOVE */
 
 function movePhoto(
     x,
@@ -1252,49 +1100,33 @@ function movePhoto(
         return;
     }
 
-
     photoX += x;
 
     photoY += y;
 
-
     updatePhoto();
 
 }
 
 
-
-/* =========================
-   RESET PHOTO
-========================= */
+/* RESET */
 
 function resetPhoto() {
 
-    zoomValue =
-    1;
+    zoomValue = 1;
 
+    photoX = 0;
 
-    photoX =
-    0;
+    photoY = 0;
 
-
-    photoY =
-    0;
-
-
-    zoom.value =
-    1;
-
+    zoom.value = 1;
 
     updatePhoto();
 
 }
 
 
-
-/* =========================
-   REMOVE FRAME
-========================= */
+/* REMOVE FRAME */
 
 function removeFrame() {
 
@@ -1304,10 +1136,7 @@ function removeFrame() {
 }
 
 
-
-/* =========================
-   TRY BUTTON
-========================= */
+/* TRY */
 
 function showTryMessage() {
 
@@ -1321,10 +1150,8 @@ function showTryMessage() {
 
     }
 
-
     frameImage.style.display =
     "block";
-
 
     document.getElementById(
         "popup"
@@ -1334,10 +1161,7 @@ function showTryMessage() {
 }
 
 
-
-/* =========================
-   CLOSE POPUP
-========================= */
+/* CLOSE POPUP */
 
 function closePopup() {
 
@@ -1349,10 +1173,7 @@ function closePopup() {
 }
 
 
-
-/* =========================
-   DOWNLOAD
-========================= */
+/* DOWNLOAD */
 
 function downloadPhoto() {
 
@@ -1372,28 +1193,17 @@ function downloadPhoto() {
         "canvas"
     );
 
+    const size = 1000;
 
-    const size =
-    1000;
+    canvas.width = size;
 
-
-    canvas.width =
-    size;
-
-
-    canvas.height =
-    size;
-
+    canvas.height = size;
 
     const ctx =
-    canvas.getContext(
-        "2d"
-    );
-
+    canvas.getContext("2d");
 
     const photo =
     new Image();
-
 
     const frame =
     new Image();
@@ -1402,10 +1212,8 @@ function downloadPhoto() {
     photo.onload =
     function() {
 
-
         frame.onload =
         function() {
-
 
             ctx.clearRect(
                 0,
@@ -1488,22 +1296,13 @@ function downloadPhoto() {
 }
 
 
+/* DRAG PHOTO */
 
-/* =========================
-   DRAG PHOTO
-========================= */
+let dragging = false;
 
-let dragging =
-false;
+let startX = 0;
 
-
-let startX =
-0;
-
-
-let startY =
-0;
-
+let startY = 0;
 
 
 photoBox.addEventListener(
@@ -1514,27 +1313,19 @@ function(event) {
         return;
     }
 
-
-    dragging =
-    true;
-
+    dragging = true;
 
     startX =
-    event.clientX -
-    photoX;
-
+    event.clientX - photoX;
 
     startY =
-    event.clientY -
-    photoY;
-
+    event.clientY - photoY;
 
     photoBox.setPointerCapture(
         event.pointerId
     );
 
 });
-
 
 
 photoBox.addEventListener(
@@ -1545,43 +1336,33 @@ function(event) {
         return;
     }
 
-
     photoX =
-    event.clientX -
-    startX;
-
+    event.clientX - startX;
 
     photoY =
-    event.clientY -
-    startY;
-
+    event.clientY - startY;
 
     updatePhoto();
 
 });
 
 
-
 photoBox.addEventListener(
 "pointerup",
 function() {
 
-    dragging =
-    false;
+    dragging = false;
 
 });
-
 
 
 photoBox.addEventListener(
 "pointercancel",
 function() {
 
-    dragging =
-    false;
+    dragging = false;
 
 });
-
 
 </script>
 
