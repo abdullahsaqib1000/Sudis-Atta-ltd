@@ -122,13 +122,14 @@
             color: #555;
         }
 
-        /* Upload Button */
+        /* Upload */
 
         .file-input {
             display: none;
         }
 
         .upload-btn {
+            display: inline-block;
             background: linear-gradient(135deg, #1877f2, #42a5f5);
             color: white;
             padding: 14px 28px;
@@ -136,7 +137,6 @@
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
-            display: inline-block;
             margin: 20px;
             transition: 0.3s;
             box-shadow: 0 4px 12px rgba(24,119,242,0.25);
@@ -144,10 +144,9 @@
 
         .upload-btn:hover {
             transform: scale(1.05);
-            background: linear-gradient(135deg, #0d5ec7, #1877f2);
         }
 
-        /* Photo */
+        /* Photo Area */
 
         .photo-box {
             position: relative;
@@ -160,12 +159,25 @@
             overflow: hidden;
             background-color: white;
             box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            touch-action: none;
+            user-select: none;
         }
 
         .photo {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            left: 0;
+            top: 0;
+            transform-origin: center center;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .photo.dragging {
+            cursor: grabbing;
         }
 
         .frame {
@@ -176,12 +188,66 @@
             height: 100%;
             display: none;
             pointer-events: none;
+            z-index: 5;
         }
 
         .frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* Photo Controls */
+
+        .photo-controls {
+            width: 400px;
+            max-width: 90vw;
+            margin: 20px auto 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .photo-controls h3 {
+            margin-top: 0;
+            color: #1877f2;
+        }
+
+        .zoom-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .zoom-row span {
+            font-size: 25px;
+        }
+
+        #zoomRange {
+            width: 70%;
+            cursor: pointer;
+        }
+
+        .move-buttons {
+            margin-top: 15px;
+        }
+
+        .move-buttons button {
+            width: 55px;
+            height: 45px;
+            padding: 5px;
+            margin: 4px;
+            font-size: 20px;
+        }
+
+        .reset-button {
+            background-color: #555;
+        }
+
+        .reset-button:hover {
+            background-color: #333;
         }
 
         /* Frame Gallery */
@@ -327,7 +393,7 @@
             color: #555;
         }
 
-        /* Contact Form */
+        /* Contact */
 
         form input,
         form textarea {
@@ -423,6 +489,10 @@
                 height: 85vw;
             }
 
+            .photo-controls {
+                width: 90vw;
+            }
+
             .frame-option img {
                 width: 85px;
                 height: 85px;
@@ -436,6 +506,10 @@
             button {
                 width: 90%;
                 max-width: 300px;
+            }
+
+            .move-buttons button {
+                width: 50px;
             }
 
             .section {
@@ -531,7 +605,7 @@
         </p>
 
 
-        <!-- Upload Photo -->
+        <!-- Upload -->
 
         <label
             for="photoUpload"
@@ -549,14 +623,18 @@
         >
 
 
-        <!-- Photo Area -->
+        <!-- Photo -->
 
-        <div class="photo-box">
+        <div
+            class="photo-box"
+            id="photoBox"
+        >
 
             <img
                 class="photo"
                 id="userPhoto"
                 src="photo.jpg"
+                draggable="false"
             >
 
             <div
@@ -570,6 +648,86 @@
                 >
 
             </div>
+
+        </div>
+
+
+        <!-- Photo Controls -->
+
+        <div class="photo-controls">
+
+            <h3>
+                Adjust Your Photo
+            </h3>
+
+            <div class="zoom-row">
+
+                <span>
+                    −
+                </span>
+
+                <input
+                    type="range"
+                    id="zoomRange"
+                    min="1"
+                    max="3"
+                    step="0.01"
+                    value="1"
+                    oninput="changeZoom()"
+                >
+
+                <span>
+                    +
+                </span>
+
+            </div>
+
+            <div class="move-buttons">
+
+                <button
+                    onclick="movePhoto(0, -10)"
+                    title="Move Up"
+                >
+                    ↑
+                </button>
+
+                <br>
+
+                <button
+                    onclick="movePhoto(-10, 0)"
+                    title="Move Left"
+                >
+                    ←
+                </button>
+
+                <button
+                    class="reset-button"
+                    onclick="resetPhoto()"
+                >
+                    Reset
+                </button>
+
+                <button
+                    onclick="movePhoto(10, 0)"
+                    title="Move Right"
+                >
+                    →
+                </button>
+
+                <br>
+
+                <button
+                    onclick="movePhoto(0, 10)"
+                    title="Move Down"
+                >
+                    ↓
+                </button>
+
+            </div>
+
+            <p>
+                عکس د Mouse یا Finger په وسیله هم حرکتولای شئ.
+            </p>
 
         </div>
 
@@ -632,17 +790,15 @@
         </div>
 
 
-        <!-- Buttons -->
+        <!-- Main Buttons -->
 
         <button onclick="showFrame()">
             Try It
         </button>
 
-
         <button onclick="hideFrame()">
             Remove Frame
         </button>
-
 
         <button onclick="downloadPhoto()">
             Download Photo
@@ -694,11 +850,11 @@
                 </div>
 
                 <h3>
-                    Choose Frame
+                    Adjust Photo
                 </h3>
 
                 <p>
-                    له موجودو Frames څخه خپل خوښ Frame انتخاب کړئ.
+                    عکس Zoom او Move کړئ.
                 </p>
 
             </div>
@@ -708,6 +864,23 @@
 
                 <div class="step-number">
                     3
+                </div>
+
+                <h3>
+                    Choose Frame
+                </h3>
+
+                <p>
+                    خپل خوښ Frame انتخاب کړئ.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    4
                 </div>
 
                 <h3>
@@ -739,8 +912,8 @@
 
         <p>
             This website allows users to upload
-            their profile photo, select a frame,
-            and download the final image.
+            their profile photo, adjust the photo,
+            select a frame, and download the final image.
         </p>
 
         <p>
@@ -767,9 +940,7 @@
         </p>
 
 
-        <form
-            id="contactForm"
-        >
+        <form id="contactForm">
 
             <input
                 type="text"
@@ -782,7 +953,6 @@
             <br>
             <br>
 
-
             <input
                 type="email"
                 id="email"
@@ -794,7 +964,6 @@
             <br>
             <br>
 
-
             <textarea
                 id="message"
                 name="message"
@@ -804,7 +973,6 @@
 
             <br>
             <br>
-
 
             <button
                 type="submit"
@@ -820,7 +988,6 @@
             id="formResult"
             style="display:none;"
         ></p>
-
 
     </section>
 
@@ -855,7 +1022,26 @@
     <script>
 
 
-        /* Upload Photo */
+        /* Photo Variables */
+
+        var zoom = 1;
+
+        var moveX = 0;
+
+        var moveY = 0;
+
+        var dragging = false;
+
+        var startX = 0;
+
+        var startY = 0;
+
+        var startMoveX = 0;
+
+        var startMoveY = 0;
+
+
+        /* Load Photo */
 
         function loadPhoto() {
 
@@ -870,9 +1056,164 @@
                 document.getElementById("userPhoto").src =
                     photoURL;
 
+                resetPhoto();
+
             }
 
         }
+
+
+        /* Apply Photo Position */
+
+        function updatePhoto() {
+
+            var photo =
+                document.getElementById("userPhoto");
+
+            photo.style.transform =
+                "translate(" +
+                moveX +
+                "px, " +
+                moveY +
+                "px) scale(" +
+                zoom +
+                ")";
+
+        }
+
+
+        /* Zoom */
+
+        function changeZoom() {
+
+            zoom =
+                parseFloat(
+                    document.getElementById("zoomRange").value
+                );
+
+            updatePhoto();
+
+        }
+
+
+        /* Move Photo */
+
+        function movePhoto(x, y) {
+
+            moveX =
+                moveX + x;
+
+            moveY =
+                moveY + y;
+
+            updatePhoto();
+
+        }
+
+
+        /* Reset Photo */
+
+        function resetPhoto() {
+
+            zoom = 1;
+
+            moveX = 0;
+
+            moveY = 0;
+
+            document.getElementById("zoomRange").value = 1;
+
+            updatePhoto();
+
+        }
+
+
+        /* Mouse and Touch Start */
+
+        var photoBox =
+            document.getElementById("photoBox");
+
+
+        photoBox.addEventListener(
+            "pointerdown",
+            function(event) {
+
+                dragging = true;
+
+                startX = event.clientX;
+
+                startY = event.clientY;
+
+                startMoveX = moveX;
+
+                startMoveY = moveY;
+
+                document
+                    .getElementById("userPhoto")
+                    .classList.add("dragging");
+
+                photoBox.setPointerCapture(event.pointerId);
+
+            }
+        );
+
+
+        /* Mouse and Touch Move */
+
+        photoBox.addEventListener(
+            "pointermove",
+            function(event) {
+
+                if (!dragging) {
+                    return;
+                }
+
+                var differenceX =
+                    event.clientX - startX;
+
+                var differenceY =
+                    event.clientY - startY;
+
+                moveX =
+                    startMoveX + differenceX;
+
+                moveY =
+                    startMoveY + differenceY;
+
+                updatePhoto();
+
+            }
+        );
+
+
+        /* Mouse and Touch End */
+
+        photoBox.addEventListener(
+            "pointerup",
+            function(event) {
+
+                dragging = false;
+
+                document
+                    .getElementById("userPhoto")
+                    .classList.remove("dragging");
+
+            }
+        );
+
+
+        photoBox.addEventListener(
+            "pointercancel",
+            function(event) {
+
+                dragging = false;
+
+                document
+                    .getElementById("userPhoto")
+                    .classList.remove("dragging");
+
+            }
+        );
 
 
         /* Select Frame */
@@ -886,17 +1227,21 @@
                 "block";
 
 
-            document.getElementById("option1")
+            document
+                .getElementById("option1")
                 .classList.remove("selected");
 
-            document.getElementById("option2")
+            document
+                .getElementById("option2")
                 .classList.remove("selected");
 
-            document.getElementById("option3")
+            document
+                .getElementById("option3")
                 .classList.remove("selected");
 
 
-            document.getElementById(optionID)
+            document
+                .getElementById(optionID)
                 .classList.add("selected");
 
         }
@@ -906,8 +1251,9 @@
 
         function showFrame() {
 
-            document.getElementById("myFrame").style.display =
-                "block";
+            document
+                .getElementById("myFrame")
+                .style.display = "block";
 
         }
 
@@ -916,8 +1262,9 @@
 
         function hideFrame() {
 
-            document.getElementById("myFrame").style.display =
-                "none";
+            document
+                .getElementById("myFrame")
+                .style.display = "none";
 
         }
 
@@ -944,10 +1291,53 @@
             canvas.height = 800;
 
 
+            photo.onload = function() {
+
+                createDownload(
+                    photo,
+                    frame,
+                    canvas,
+                    context
+                );
+
+            };
+
+
+            if (photo.complete) {
+
+                createDownload(
+                    photo,
+                    frame,
+                    canvas,
+                    context
+                );
+
+            }
+
+        }
+
+
+        /* Create Download */
+
+        function createDownload(
+            photo,
+            frame,
+            canvas,
+            context
+        ) {
+
+            context.clearRect(
+                0,
+                0,
+                800,
+                800
+            );
+
+
             context.save();
 
-            context.beginPath();
 
+            context.beginPath();
 
             context.arc(
                 400,
@@ -957,18 +1347,84 @@
                 Math.PI * 2
             );
 
-
             context.clip();
+
+
+            /*
+                Calculate cover size
+            */
+
+            var imageWidth =
+                photo.naturalWidth;
+
+            var imageHeight =
+                photo.naturalHeight;
+
+
+            var scale =
+                Math.max(
+                    800 / imageWidth,
+                    800 / imageHeight
+                );
+
+
+            var drawWidth =
+                imageWidth * scale;
+
+            var drawHeight =
+                imageHeight * scale;
+
+
+            var drawX =
+                (800 - drawWidth) / 2;
+
+            var drawY =
+                (800 - drawHeight) / 2;
+
+
+            /*
+                Apply Zoom and Move
+            */
+
+            context.translate(
+                400,
+                400
+            );
+
+
+            context.scale(
+                zoom,
+                zoom
+            );
+
+
+            context.translate(
+                moveX * 2,
+                moveY * 2
+            );
+
+
+            context.translate(
+                -400,
+                -400
+            );
 
 
             context.drawImage(
                 photo,
-                0,
-                0,
-                800,
-                800
+                drawX,
+                drawY,
+                drawWidth,
+                drawHeight
             );
 
+
+            context.restore();
+
+
+            /*
+                Draw Frame
+            */
 
             context.drawImage(
                 frame,
@@ -979,20 +1435,18 @@
             );
 
 
-            context.restore();
-
+            /*
+                Download
+            */
 
             var link =
                 document.createElement("a");
 
-
             link.download =
                 "my-profile-frame.png";
 
-
             link.href =
                 canvas.toDataURL("image/png");
-
 
             link.click();
 
@@ -1003,119 +1457,135 @@
 
         document
             .getElementById("contactForm")
-            .addEventListener("submit", function(event) {
+            .addEventListener(
+                "submit",
+                function(event) {
 
-                event.preventDefault();
-
-
-                var form = this;
-
-
-                var button =
-                    document.getElementById("sendButton");
+                    event.preventDefault();
 
 
-                var result =
-                    document.getElementById("formResult");
+                    var form = this;
 
 
-                var popup =
-                    document.getElementById("successPopup");
+                    var button =
+                        document.getElementById(
+                            "sendButton"
+                        );
 
 
-                button.innerHTML =
-                    "Sending...";
+                    var result =
+                        document.getElementById(
+                            "formResult"
+                        );
 
 
-                button.disabled =
-                    true;
+                    var popup =
+                        document.getElementById(
+                            "successPopup"
+                        );
 
-
-                var formData =
-                    new FormData(form);
-
-
-                fetch(
-                    "https://formspree.io/f/mbglrjkp",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                )
-
-
-                .then(function(response) {
-
-                    if (response.ok) {
-
-                        result.style.display =
-                            "none";
-
-
-                        popup.style.display =
-                            "block";
-
-
-                        form.reset();
-
-
-                        setTimeout(function() {
-
-                            popup.style.display =
-                                "none";
-
-                        }, 3000);
-
-                    }
-
-
-                    else {
-
-                        result.style.display =
-                            "block";
-
-                        result.style.color =
-                            "red";
-
-                        result.innerHTML =
-                            "Something went wrong. Please try again.";
-
-                    }
-
-                })
-
-
-                .catch(function() {
-
-                    result.style.display =
-                        "block";
-
-                    result.style.color =
-                        "red";
-
-                    result.innerHTML =
-                        "Connection error. Please try again.";
-
-                })
-
-
-                .finally(function() {
 
                     button.innerHTML =
-                        "Send Message";
+                        "Sending...";
 
                     button.disabled =
-                        false;
-
-                });
+                        true;
 
 
-            });
+                    var formData =
+                        new FormData(form);
+
+
+                    fetch(
+                        "https://formspree.io/f/mbglrjkp",
+                        {
+                            method: "POST",
+
+                            body: formData,
+
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    )
+
+
+                    .then(
+                        function(response) {
+
+                            if (response.ok) {
+
+                                result.style.display =
+                                    "none";
+
+
+                                popup.style.display =
+                                    "block";
+
+
+                                form.reset();
+
+
+                                setTimeout(
+                                    function() {
+
+                                        popup.style.display =
+                                            "none";
+
+                                    },
+                                    3000
+                                );
+
+                            }
+
+                            else {
+
+                                result.style.display =
+                                    "block";
+
+                                result.style.color =
+                                    "red";
+
+                                result.innerHTML =
+                                    "Something went wrong. Please try again.";
+
+                            }
+
+                        }
+                    )
+
+
+                    .catch(
+                        function() {
+
+                            result.style.display =
+                                "block";
+
+                            result.style.color =
+                                "red";
+
+                            result.innerHTML =
+                                "Connection error. Please try again.";
+
+                        }
+                    )
+
+
+                    .finally(
+                        function() {
+
+                            button.innerHTML =
+                                "Send Message";
+
+                            button.disabled =
+                                false;
+
+                        }
+                    );
+
+                }
+            );
 
 
     </script>
