@@ -2,535 +2,458 @@
 <html lang="ps" dir="rtl">
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Profile Frame Maker</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
-rel="stylesheet"
->
-
-<style>
-
-/* =========================
-   GENERAL
-========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Noto Naskh Arabic", Tahoma, Arial, sans-serif;
-    background: #f5f7fa;
-    color: #222;
-}
-
-
-/* =========================
-   ENGLISH
-========================= */
-
-.english {
-    direction: ltr;
-    text-align: left;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav {
-    background: #111827;
-    padding: 15px;
-    text-align: center;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #60a5fa;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container {
-    width: 95%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    background: white;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.hero h1 {
-    font-family: Arial, Tahoma, sans-serif;
-    direction: ltr;
-    font-size: 38px;
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   PASHTO
-========================= */
-
-.pashto {
-    direction: rtl;
-    text-align: center;
-    font-family: "Noto Naskh Arabic", Tahoma, sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 2;
-    letter-spacing: 0;
-    word-spacing: 0;
-    unicode-bidi: isolate;
-    text-rendering: optimizeLegibility;
-}
-
-.pashto-right {
-    direction: rtl;
-    text-align: right;
-    font-family: "Noto Naskh Arabic", Tahoma, sans-serif;
-    font-size: 21px;
-    font-weight: 500;
-    line-height: 2;
-    letter-spacing: 0;
-    word-spacing: 0;
-    unicode-bidi: isolate;
-    text-rendering: optimizeLegibility;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-.button:hover {
-    background: #1d4ed8;
-}
-
-
-/* =========================
-   FRAME MAKER
-========================= */
-
-.frame-maker {
-    background: white;
-    margin-top: 25px;
-    padding: 30px 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.frame-maker h2 {
-    direction: ltr;
-    text-align: center;
-    margin-bottom: 10px;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   UPLOAD
-========================= */
-
-.upload-area {
-    text-align: center;
-    margin: 25px 0;
-}
-
-.upload-btn {
-    display: inline-block;
-    background: #16a34a;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-.upload-btn:hover {
-    background: #15803d;
-}
-
-.file-input {
-    display: none;
-}
-
-
-/* =========================
-   PHOTO AREA
-========================= */
-
-.photo-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 0;
-}
-
-.photo-box {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    max-width: 90vw;
-    max-height: 90vw;
-    overflow: hidden;
-    border-radius: 50%;
-    background: #e5e7eb;
-    border: 3px solid #ddd;
-    touch-action: none;
-}
-
-#userPhoto {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    left: 0;
-    top: 0;
-    transform-origin: center center;
-    display: none;
-}
-
-#frameImage {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    object-fit: contain;
-    pointer-events: none;
-}
-
-
-/* =========================
-   CONTROLS
-========================= */
-
-.controls {
-    text-align: center;
-    margin: 25px 0;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-.controls label {
-    font-weight: bold;
-}
-
-.zoom-control {
-    width: 250px;
-    max-width: 80%;
-    margin: 15px;
-}
-
-
-/* =========================
-   MOVE BUTTONS
-========================= */
-
-.move-buttons {
-    margin-top: 15px;
-    direction: ltr;
-}
-
-.move-buttons button {
-    width: 45px;
-    height: 40px;
-    margin: 3px;
-    border: none;
-    border-radius: 6px;
-    background: #374151;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-.move-buttons button:hover {
-    background: #111827;
-}
-
-
-/* =========================
-   FRAMES
-========================= */
-
-.frames {
-    margin-top: 35px;
-}
-
-.frames h2 {
-    text-align: center;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-.frame-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    direction: ltr;
-}
-
-.frame-option {
-    width: 120px;
-    height: 120px;
-    border: 3px solid transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    object-fit: contain;
-    background: #f3f4f6;
-    padding: 5px;
-}
-
-.frame-option:hover {
-    border-color: #2563eb;
-}
-
-.frame-option.selected {
-    border-color: #16a34a;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-    padding: 50px 20px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 25px;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   HOW IT WORKS
-========================= */
-
-.steps {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    direction: ltr;
-}
-
-.step {
-    background: white;
-    width: 280px;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    text-align: center;
-    direction: ltr;
-}
-
-.step-number {
-    width: 45px;
-    height: 45px;
-    background: #2563eb;
-    color: white;
-    border-radius: 50%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.step h3 {
-    font-family: Arial, Tahoma, sans-serif;
-    direction: ltr;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    background: white;
-}
-
-.about p {
-    max-width: 800px;
-    margin: 10px auto;
-    font-size: 18px;
-}
-
-.about .english-text {
-    direction: ltr;
-    text-align: left;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: #f3f4f6;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: auto;
-    direction: ltr;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    font-size: 16px;
-    font-family: Arial, Tahoma, sans-serif;
-    direction: ltr;
-    text-align: left;
-}
-
-.contact-form textarea {
-    height: 130px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   POPUP
-========================= */
-
-.popup {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 30px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    text-align: center;
-    display: none;
-    z-index: 9999;
-}
-
-.popup h3 {
-    direction: ltr;
-    font-family: Arial, Tahoma, sans-serif;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .pashto {
-        font-size: 19px;
-        line-height: 2;
-    }
-
-    .photo-box {
-        width: 320px;
-        height: 320px;
-    }
-
-    nav a {
-        margin: 0 5px;
-        font-size: 14px;
-    }
-
-    .frame-option {
-        width: 100px;
-        height: 100px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile Frame Maker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Naskh Arabic", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1877f2, #0755c9);
+            color: white;
+            padding: 18px 30px;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            direction: ltr;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1877f2, #0755c9);
+            color: white;
+            text-align: center;
+            padding: 55px 20px 70px;
+        }
+
+        .hero h1 {
+            margin: 0 0 15px;
+            font-size: 42px;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -35px auto 60px;
+            padding: 0 20px;
+        }
+
+        .maker-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+        }
+
+        .maker-title {
+            text-align: center;
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .maker-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .upload-label {
+            display: inline-block;
+            background: #1877f2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .upload-label:hover {
+            background: #0755c9;
+        }
+
+        #photoInput {
+            display: none;
+        }
+
+        .preview-area {
+            width: 400px;
+            height: 400px;
+            max-width: 100%;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: #eee;
+            border: 4px solid #ddd;
+            touch-action: none;
+        }
+
+        #photo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            left: 0;
+            top: 0;
+            transform-origin: center center;
+            display: none;
+            cursor: move;
+            touch-action: none;
+        }
+
+        #frameImage {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            object-fit: contain;
+            pointer-events: none;
+            display: none;
+        }
+
+        .controls {
+            max-width: 600px;
+            margin: 25px auto;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        #zoomRange {
+            width: 100%;
+        }
+
+        .move-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .move-buttons button {
+            width: 50px;
+            height: 45px;
+            border: none;
+            background: #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .move-buttons button:hover {
+            background: #ddd;
+        }
+
+        .frames {
+            margin-top: 35px;
+        }
+
+        .frames-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .frame-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .frame-item {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 8px;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .frame-item:hover {
+            border-color: #1877f2;
+            transform: translateY(-2px);
+        }
+
+        .frame-item.selected {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px rgba(24,119,242,0.15);
+        }
+
+        .frame-option {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            display: block;
+        }
+
+        .frame-name {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .frame-category {
+            display: block;
+            color: #777;
+            font-size: 12px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: "Noto Naskh Arabic", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .try-button {
+            background: #1877f2;
+            color: white;
+        }
+
+        .try-button:hover {
+            background: #0755c9;
+        }
+
+        .remove-button {
+            background: #e4e6eb;
+            color: #222;
+        }
+
+        .download-button {
+            background: #42b72a;
+            color: white;
+        }
+
+        .download-button:hover {
+            background: #36a420;
+        }
+
+        section.info {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-box h2 {
+            margin-top: 0;
+            color: #1877f2;
+        }
+
+        .english {
+            direction: ltr;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-family: "Noto Naskh Arabic", Arial, sans-serif;
+            font-size: 15px;
+            direction: rtl;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #1877f2;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: "Noto Naskh Arabic", Arial, sans-serif;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            direction: ltr;
+            font-family: Arial, sans-serif;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                position: relative;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 55px;
+                right: 0;
+                left: 0;
+                background: #0755c9;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                border-radius: 0 0 10px 10px;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero {
+                padding: 40px 15px 60px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .maker-card {
+                padding: 20px 15px;
+            }
+
+            .preview-area {
+                width: 330px;
+                height: 330px;
+            }
+
+            .frame-list {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .frame-item {
+                padding: 5px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -538,927 +461,1163 @@ footer {
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<header>
 
-<nav>
+    <nav>
 
-<a href="#home">Home</a>
-
-<a href="#frame-maker">Create</a>
-
-<a href="#about">About</a>
-
-<a href="#contact">Contact</a>
-
-</nav>
+        <div class="logo english">
+            Profile Frame Maker
+        </div>
 
 
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open Menu">
 
-<!-- =========================
-     HOME
-========================= -->
+            ☰
 
-<section class="hero" id="home">
+        </button>
 
-<div class="container">
 
-<h1>
-Create Your Profile Frame
-</h1>
+        <div
+            class="nav-links"
+            id="navLinks">
 
-<p class="pashto" lang="ps" dir="rtl">
-خپل عکس پورته کړئ، خپل خوښ چوکاټ وټاکئ او عکس په اسانۍ سره ښکته کړئ.
-</p>
+            <a href="#home">
+                Home
+            </a>
 
-<a
-href="#frame-maker"
-class="button"
->
-Try It Now
-</a>
+            <a href="#maker">
+                Create
+            </a>
 
-</div>
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<section
+    class="hero"
+    id="home">
+
+    <h1>
+        خپل Profile Frame جوړ کړئ
+    </h1>
+
+    <p>
+        خپل عکس Upload کړئ، خپل خوښ Frame انتخاب کړئ او په اسانۍ سره یې Download کړئ.
+    </p>
 
 </section>
 
 
-
-<!-- =========================
-     FRAME MAKER
-========================= -->
-
-<section id="frame-maker">
-
-<div class="container">
-
-<div class="frame-maker">
-
-<h2>
-Profile Frame Maker
-</h2>
-
-<p class="pashto" lang="ps" dir="rtl">
-خپل عکس انتخاب کړئ او خپل خوښ چوکاټ پرې واچوئ.
-</p>
-
-
-
-<!-- UPLOAD -->
-
-<div class="upload-area">
-
-<label
-for="photoInput"
-class="upload-btn"
->
-📷 Upload Photo
-</label>
-
-<input
-type="file"
-id="photoInput"
-class="file-input"
-accept="image/*"
->
-
-</div>
-
-
-
-<!-- PHOTO -->
-
-<div class="photo-area">
 
 <div
-class="photo-box"
-id="photoBox"
->
+    class="container"
+    id="maker">
 
-<img
-id="userPhoto"
-alt="Your Photo"
->
+    <div class="maker-card">
 
-<img
-id="frameImage"
-src="frame1.png"
-alt="Frame"
->
+
+        <h2 class="maker-title">
+            Profile Frame Maker
+        </h2>
+
+
+        <p class="maker-description">
+            خپل عکس انتخاب کړئ او خپل خوښ Frame پرې واچوئ.
+        </p>
+
+
+
+        <div class="upload-area">
+
+            <label
+                for="photoInput"
+                class="upload-label">
+
+                عکس Upload کړئ
+
+            </label>
+
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*">
+
+        </div>
+
+
+
+        <div
+            class="preview-area"
+            id="previewArea">
+
+            <img
+                id="photo"
+                src=""
+                alt="Your Photo">
+
+
+            <img
+                id="frameImage"
+                src=""
+                alt="Selected Frame">
+
+        </div>
+
+
+
+        <div class="controls">
+
+
+            <div class="control-group">
+
+                <label for="zoomRange">
+                    Zoom
+                </label>
+
+
+                <input
+                    type="range"
+                    id="zoomRange"
+                    min="0.5"
+                    max="3"
+                    step="0.01"
+                    value="1">
+
+            </div>
+
+
+
+            <div class="control-group">
+
+                <label>
+                    د عکس حرکت
+                </label>
+
+
+                <div class="move-buttons">
+
+                    <button id="moveUp">
+                        ↑
+                    </button>
+
+                    <button id="moveLeft">
+                        ←
+                    </button>
+
+                    <button id="moveReset">
+                        ↻
+                    </button>
+
+                    <button id="moveRight">
+                        →
+                    </button>
+
+                    <button id="moveDown">
+                        ↓
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="frames">
+
+            <h2 class="frames-title">
+                خپل Frame انتخاب کړئ
+            </h2>
+
+
+            <div
+                class="frame-list"
+                id="frameList">
+
+                <p>
+                    Frames Loading...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="buttons">
+
+            <button
+                class="try-button"
+                id="tryButton">
+
+                Try It
+
+            </button>
+
+
+            <button
+                class="remove-button"
+                id="removeButton">
+
+                Frame لرې کړئ
+
+            </button>
+
+
+            <button
+                class="download-button"
+                id="downloadButton">
+
+                عکس Download کړئ
+
+            </button>
+
+        </div>
+
+
+    </div>
 
 </div>
 
-</div>
+
+
+<section class="info">
+
+
+    <div class="info-box">
+
+        <h2>
+            څنګه کار کوي؟
+        </h2>
+
+
+        <p>
+            خپل عکس Upload کړئ.
+        </p>
+
+
+        <p>
+            له موجودو Frames څخه خپل خوښ Frame انتخاب کړئ.
+        </p>
+
+
+        <p>
+            د Zoom او حرکت له لارې خپل عکس برابر کړئ.
+        </p>
+
+
+        <p>
+            خپل جوړ شوی عکس Download کړئ.
+        </p>
+
+    </div>
 
 
 
-<!-- CONTROLS -->
+    <div
+        class="info-box"
+        id="about">
 
-<div class="controls">
-
-<label for="zoom">
-Zoom
-</label>
-
-<br>
-
-<input
-type="range"
-id="zoom"
-class="zoom-control"
-min="0.5"
-max="2.5"
-step="0.01"
-value="1"
->
-
-<br>
+        <h2>
+            About
+        </h2>
 
 
-<div class="move-buttons">
+        <p class="english">
+            Our goal is to make profile frame creation simple, fast and easy for everyone.
+        </p>
 
-<button
-type="button"
-onclick="movePhoto(0,-10)"
->
-↑
-</button>
 
-<br>
+        <p>
+            زموږ هدف دا دی چې د Profile Frame جوړول ساده، چټک او د هر چا لپاره اسانه وي.
+        </p>
 
-<button
-type="button"
-onclick="movePhoto(-10,0)"
->
-←
-</button>
-
-<button
-type="button"
-onclick="resetPhoto()"
->
-Reset
-</button>
-
-<button
-type="button"
-onclick="movePhoto(10,0)"
->
-→
-</button>
-
-<br>
-
-<button
-type="button"
-onclick="movePhoto(0,10)"
->
-↓
-</button>
-
-</div>
-
-</div>
+    </div>
 
 
 
-<!-- FRAMES -->
+    <div
+        class="info-box"
+        id="contact">
 
-<div class="frames">
-
-<h2>
-Choose Your Frame
-</h2>
-
-<div class="frame-list">
-
-<img
-src="frame1.png"
-class="frame-option selected"
-onclick="selectFrame(this,'frame1.png')"
-alt="Frame 1"
->
-
-<img
-src="frame2.png"
-class="frame-option"
-onclick="selectFrame(this,'frame2.png')"
-alt="Frame 2"
->
-
-<img
-src="frame3.png"
-class="frame-option"
-onclick="selectFrame(this,'frame3.png')"
-alt="Frame 3"
->
-
-</div>
-
-</div>
+        <h2>
+            Contact
+        </h2>
 
 
-
-<!-- BUTTONS -->
-
-<div style="text-align:center;margin-top:30px;direction:ltr;">
-
-<button
-type="button"
-class="button"
-onclick="showTryMessage()"
->
-Try It
-</button>
-
-<button
-type="button"
-class="button"
-onclick="removeFrame()"
->
-Remove Frame
-</button>
-
-<button
-type="button"
-class="button"
-onclick="downloadPhoto()"
->
-Download Photo
-</button>
-
-</div>
+        <form
+            class="contact-form"
+            action="https://formspree.io/f/mbglrjkp"
+            method="POST">
 
 
-</div>
+            <input
+                type="text"
+                name="name"
+                placeholder="ستاسو نوم"
+                required>
 
-</div>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="ستاسو Email"
+                required>
+
+
+            <textarea
+                name="message"
+                placeholder="خپل پیغام ولیکئ"
+                required></textarea>
+
+
+            <button type="submit">
+                پیغام واستوئ
+            </button>
+
+
+        </form>
+
+    </div>
+
 
 </section>
 
 
-
-<!-- =========================
-     HOW IT WORKS
-========================= -->
-
-<section id="how-it-works">
-
-<div class="container">
-
-<h2 class="section-title">
-How It Works
-</h2>
-
-
-<div class="steps">
-
-
-<div class="step">
-
-<div class="step-number">
-1
-</div>
-
-<h3>
-Upload Photo
-</h3>
-
-<p class="pashto" lang="ps" dir="rtl">
-خپل عکس پورته کړئ.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<div class="step-number">
-2
-</div>
-
-<h3>
-Choose Frame
-</h3>
-
-<p class="pashto" lang="ps" dir="rtl">
-له موجودو چوکاټونو څخه خپل خوښ چوکاټ انتخاب کړئ.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<div class="step-number">
-3
-</div>
-
-<h3>
-Download
-</h3>
-
-<p class="pashto" lang="ps" dir="rtl">
-خپل جوړ شوی عکس ښکته کړئ.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section
-class="about"
-id="about"
->
-
-<div class="container">
-
-<h2 class="section-title">
-About
-</h2>
-
-<p class="english-text">
-This website allows users to upload their profile photo,
-select a frame, and download the final image.
-</p>
-
-<p class="pashto" lang="ps" dir="rtl">
-زموږ هدف دا دی چې د عکس چوکاټ جوړول ساده، چټک او د هر چا لپاره اسانه وي.
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-class="contact"
-id="contact"
->
-
-<div class="container">
-
-<h2 class="section-title">
-Contact Us
-</h2>
-
-<p class="pashto" lang="ps" dir="rtl">
-خپل معلومات ولیکئ.
-</p>
-
-
-<form
-class="contact-form"
-action="https://formspree.io/f/mbglrjkp"
-method="POST"
->
-
-<input
-type="text"
-name="name"
-placeholder="Your Name"
-required
->
-
-<input
-type="email"
-name="email"
-placeholder="Your Email"
-required
->
-
-<textarea
-name="message"
-placeholder="Your Message"
-required
-></textarea>
-
-<button
-type="submit"
-class="button"
->
-Send Message
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
-<p>
-© 2026 My Frame
-</p>
-
-<p>
-Profile Frame Maker
-</p>
+    Profile Frame Maker © 2026
 
 </footer>
 
 
 
-<!-- =========================
-     POPUP
-========================= -->
-
-<div
-class="popup"
-id="popup"
->
-
-<h3>
-Profile Frame
-</h3>
-
-<p class="pashto" lang="ps" dir="rtl">
-ستاسو عکس تیار دی.
-</p>
-
-<button
-type="button"
-class="button"
-onclick="closePopup()"
->
-OK
-</button>
-
-</div>
-
-
-
 <script>
 
-/* =========================
-   VARIABLES
-========================= */
 
-let selectedFrame = "frame1.png";
+    let frames = [];
 
-let zoomValue = 1;
+    let selectedFrame = null;
 
-let photoX = 0;
+    let zoom = 1;
 
-let photoY = 0;
+    let photoX = 0;
 
-let uploadedPhoto = false;
+    let photoY = 0;
 
+    let isDragging = false;
 
-/* =========================
-   ELEMENTS
-========================= */
+    let startX = 0;
 
-const photoInput =
-document.getElementById("photoInput");
+    let startY = 0;
 
-const userPhoto =
-document.getElementById("userPhoto");
+    let startPhotoX = 0;
 
-const frameImage =
-document.getElementById("frameImage");
+    let startPhotoY = 0;
 
-const zoom =
-document.getElementById("zoom");
 
-const photoBox =
-document.getElementById("photoBox");
 
+    const photoInput =
+        document.getElementById("photoInput");
 
-/* =========================
-   UPLOAD PHOTO
-========================= */
-
-photoInput.addEventListener(
-"change",
-function(event) {
-
-    const file =
-    event.target.files[0];
-
-    if (!file) {
-        return;
-    }
-
-    const reader =
-    new FileReader();
-
-    reader.onload =
-    function(e) {
-
-        userPhoto.src =
-        e.target.result;
-
-        userPhoto.style.display =
-        "block";
-
-        uploadedPhoto =
-        true;
-
-        resetPhoto();
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
-
-
-/* =========================
-   SELECT FRAME
-========================= */
-
-function selectFrame(
-    element,
-    frame
-) {
-
-    selectedFrame =
-    frame;
-
-    frameImage.src =
-    frame;
-
-    frameImage.style.display =
-    "block";
-
-    const allFrames =
-    document.querySelectorAll(
-        ".frame-option"
-    );
-
-    allFrames.forEach(
-    function(item) {
-
-        item.classList.remove(
-            "selected"
-        );
-
-    });
-
-    element.classList.add(
-        "selected"
-    );
-
-}
-
-
-/* =========================
-   ZOOM
-========================= */
-
-zoom.addEventListener(
-"input",
-function() {
-
-    zoomValue =
-    parseFloat(this.value);
-
-    updatePhoto();
-
-});
-
-
-/* =========================
-   UPDATE PHOTO
-========================= */
-
-function updatePhoto() {
-
-    userPhoto.style.transform =
-        "translate(" +
-        photoX +
-        "px, " +
-        photoY +
-        "px) scale(" +
-        zoomValue +
-        ")";
-
-}
-
-
-/* =========================
-   MOVE PHOTO
-========================= */
-
-function movePhoto(
-    x,
-    y
-) {
-
-    if (!uploadedPhoto) {
-        return;
-    }
-
-    photoX += x;
-
-    photoY += y;
-
-    updatePhoto();
-
-}
-
-
-/* =========================
-   RESET PHOTO
-========================= */
-
-function resetPhoto() {
-
-    zoomValue = 1;
-
-    photoX = 0;
-
-    photoY = 0;
-
-    zoom.value = 1;
-
-    updatePhoto();
-
-}
-
-
-/* =========================
-   REMOVE FRAME
-========================= */
-
-function removeFrame() {
-
-    frameImage.style.display =
-    "none";
-
-}
-
-
-/* =========================
-   TRY BUTTON
-========================= */
-
-function showTryMessage() {
-
-    if (!uploadedPhoto) {
-
-        alert(
-            "Please upload a photo first."
-        );
-
-        return;
-
-    }
-
-    frameImage.style.display =
-    "block";
-
-    document.getElementById(
-        "popup"
-    ).style.display =
-    "block";
-
-}
-
-
-/* =========================
-   CLOSE POPUP
-========================= */
-
-function closePopup() {
-
-    document.getElementById(
-        "popup"
-    ).style.display =
-    "none";
-
-}
-
-
-/* =========================
-   DOWNLOAD
-========================= */
-
-function downloadPhoto() {
-
-    if (!uploadedPhoto) {
-
-        alert(
-            "Please upload a photo first."
-        );
-
-        return;
-
-    }
-
-
-    const canvas =
-    document.createElement(
-        "canvas"
-    );
-
-    const size = 1000;
-
-    canvas.width =
-    size;
-
-    canvas.height =
-    size;
-
-    const ctx =
-    canvas.getContext(
-        "2d"
-    );
 
     const photo =
-    new Image();
-
-    const frame =
-    new Image();
+        document.getElementById("photo");
 
 
-    photo.onload =
-    function() {
+    const frameImage =
+        document.getElementById("frameImage");
 
-        frame.onload =
+
+    const frameList =
+        document.getElementById("frameList");
+
+
+    const zoomRange =
+        document.getElementById("zoomRange");
+
+
+    const previewArea =
+        document.getElementById("previewArea");
+
+
+    const tryButton =
+        document.getElementById("tryButton");
+
+
+    const removeButton =
+        document.getElementById("removeButton");
+
+
+    const downloadButton =
+        document.getElementById("downloadButton");
+
+
+    const moveUp =
+        document.getElementById("moveUp");
+
+
+    const moveDown =
+        document.getElementById("moveDown");
+
+
+    const moveLeft =
+        document.getElementById("moveLeft");
+
+
+    const moveRight =
+        document.getElementById("moveRight");
+
+
+    const moveReset =
+        document.getElementById("moveReset");
+
+
+    const menuButton =
+        document.getElementById("menuButton");
+
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+
+    /* Mobile Menu */
+
+    menuButton.addEventListener(
+        "click",
         function() {
 
-            ctx.clearRect(
+            navLinks.classList.toggle("active");
+
+        }
+    );
+
+
+
+    navLinks.querySelectorAll("a").forEach(
+        function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    navLinks.classList.remove("active");
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* Load Frames */
+
+    fetch("frames.json")
+
+        .then(function(response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "frames.json not found"
+                );
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(function(data) {
+
+            frames = data;
+
+            createFrames();
+
+
+            if (frames.length > 0) {
+
+                const firstFrame =
+                    document.querySelector(
+                        ".frame-item"
+                    );
+
+
+                selectFrame(
+                    frames[0],
+                    firstFrame
+                );
+
+            }
+
+        })
+
+        .catch(function(error) {
+
+            console.error(error);
+
+
+            frameList.innerHTML =
+                "<p>Frames پیدا نه شول.</p>";
+
+        });
+
+
+
+    /* Create Frames */
+
+    function createFrames() {
+
+        frameList.innerHTML = "";
+
+
+        frames.forEach(
+            function(frame) {
+
+
+                const item =
+                    document.createElement("div");
+
+
+                item.className =
+                    "frame-item";
+
+
+                const image =
+                    document.createElement("img");
+
+
+                image.className =
+                    "frame-option";
+
+
+                image.src =
+                    frame.file;
+
+
+                image.alt =
+                    frame.name;
+
+
+                const name =
+                    document.createElement("span");
+
+
+                name.className =
+                    "frame-name";
+
+
+                name.textContent =
+                    frame.name;
+
+
+                const category =
+                    document.createElement("span");
+
+
+                category.className =
+                    "frame-category";
+
+
+                category.textContent =
+                    frame.category;
+
+
+                item.appendChild(image);
+
+
+                item.appendChild(name);
+
+
+                item.appendChild(category);
+
+
+                item.addEventListener(
+                    "click",
+                    function() {
+
+                        selectFrame(
+                            frame,
+                            item
+                        );
+
+                    }
+                );
+
+
+                frameList.appendChild(item);
+
+            }
+        );
+
+    }
+
+
+
+    /* Select Frame */
+
+    function selectFrame(
+        frame,
+        element
+    ) {
+
+        selectedFrame =
+            frame;
+
+
+        frameImage.src =
+            frame.file;
+
+
+        frameImage.style.display =
+            "block";
+
+
+        document
+            .querySelectorAll(".frame-item")
+            .forEach(
+                function(item) {
+
+                    item.classList.remove(
+                        "selected"
+                    );
+
+                }
+            );
+
+
+        if (element) {
+
+            element.classList.add(
+                "selected"
+            );
+
+        }
+
+    }
+
+
+
+    /* Upload Photo */
+
+    photoInput.addEventListener(
+        "change",
+        function(event) {
+
+            const file =
+                event.target.files[0];
+
+
+            if (!file) {
+
+                return;
+
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(e) {
+
+                    photo.src =
+                        e.target.result;
+
+
+                    photo.style.display =
+                        "block";
+
+
+                    zoom =
+                        1;
+
+
+                    photoX =
+                        0;
+
+
+                    photoY =
+                        0;
+
+
+                    zoomRange.value =
+                        1;
+
+
+                    updatePhoto();
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+
+
+    /* Update Photo */
+
+    function updatePhoto() {
+
+        photo.style.transform =
+            "translate(" +
+            photoX +
+            "px, " +
+            photoY +
+            "px) scale(" +
+            zoom +
+            ")";
+
+    }
+
+
+
+    /* Zoom */
+
+    zoomRange.addEventListener(
+        "input",
+        function() {
+
+            zoom =
+                parseFloat(
+                    zoomRange.value
+                );
+
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Move Up */
+
+    moveUp.addEventListener(
+        "click",
+        function() {
+
+            photoY -= 10;
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Move Down */
+
+    moveDown.addEventListener(
+        "click",
+        function() {
+
+            photoY += 10;
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Move Left */
+
+    moveLeft.addEventListener(
+        "click",
+        function() {
+
+            photoX -= 10;
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Move Right */
+
+    moveRight.addEventListener(
+        "click",
+        function() {
+
+            photoX += 10;
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Reset */
+
+    moveReset.addEventListener(
+        "click",
+        function() {
+
+            photoX =
+                0;
+
+
+            photoY =
+                0;
+
+
+            zoom =
+                1;
+
+
+            zoomRange.value =
+                1;
+
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    /* Drag Photo */
+
+    photo.addEventListener(
+        "pointerdown",
+        function(event) {
+
+            if (
+                photo.style.display ===
+                "none"
+            ) {
+
+                return;
+
+            }
+
+
+            isDragging =
+                true;
+
+
+            photo.setPointerCapture(
+                event.pointerId
+            );
+
+
+            startX =
+                event.clientX;
+
+
+            startY =
+                event.clientY;
+
+
+            startPhotoX =
+                photoX;
+
+
+            startPhotoY =
+                photoY;
+
+        }
+    );
+
+
+
+    photo.addEventListener(
+        "pointermove",
+        function(event) {
+
+            if (!isDragging) {
+
+                return;
+
+            }
+
+
+            const differenceX =
+                event.clientX -
+                startX;
+
+
+            const differenceY =
+                event.clientY -
+                startY;
+
+
+            photoX =
+                startPhotoX +
+                differenceX;
+
+
+            photoY =
+                startPhotoY +
+                differenceY;
+
+
+            updatePhoto();
+
+        }
+    );
+
+
+
+    photo.addEventListener(
+        "pointerup",
+        function() {
+
+            isDragging =
+                false;
+
+        }
+    );
+
+
+
+    photo.addEventListener(
+        "pointercancel",
+        function() {
+
+            isDragging =
+                false;
+
+        }
+    );
+
+
+
+    /* Try It */
+
+    tryButton.addEventListener(
+        "click",
+        function() {
+
+            document
+                .getElementById("maker")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+
+            photoInput.click();
+
+        }
+    );
+
+
+
+    /* Remove Frame */
+
+    removeButton.addEventListener(
+        "click",
+        function() {
+
+            frameImage.style.display =
+                "none";
+
+
+            selectedFrame =
+                null;
+
+
+            document
+                .querySelectorAll(".frame-item")
+                .forEach(
+                    function(item) {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+
+
+    /* Download */
+
+    downloadButton.addEventListener(
+        "click",
+        function() {
+
+
+            if (!photo.src) {
+
+                alert(
+                    "لومړی خپل عکس Upload کړئ."
+                );
+
+                return;
+
+            }
+
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            const context =
+                canvas.getContext(
+                    "2d"
+                );
+
+
+            canvas.width =
+                1000;
+
+
+            canvas.height =
+                1000;
+
+
+            context.clearRect(
                 0,
                 0,
-                size,
-                size
+                canvas.width,
+                canvas.height
             );
 
 
             const scale =
-            size / 400;
+                1000 /
+                previewArea.clientWidth;
+
+
+            context.save();
+
+
+            context.translate(
+                500 +
+                (photoX * scale),
+
+                500 +
+                (photoY * scale)
+            );
+
+
+            context.scale(
+                zoom,
+                zoom
+            );
+
+
+            const photoWidth =
+                photo.naturalWidth;
+
+
+            const photoHeight =
+                photo.naturalHeight;
+
+
+            const previewSize =
+                previewArea.clientWidth;
+
+
+            const coverScale =
+                Math.max(
+                    previewSize /
+                    photoWidth,
+
+                    previewSize /
+                    photoHeight
+                );
 
 
             const drawWidth =
-            size * zoomValue;
+                photoWidth *
+                coverScale *
+                scale;
 
 
             const drawHeight =
-            size * zoomValue;
+                photoHeight *
+                coverScale *
+                scale;
 
 
-            const drawX =
-            (size - drawWidth) / 2 +
-            photoX * scale;
-
-
-            const drawY =
-            (size - drawHeight) / 2 +
-            photoY * scale;
-
-
-            ctx.drawImage(
+            context.drawImage(
                 photo,
-                drawX,
-                drawY,
+
+                -drawWidth / 2,
+
+                -drawHeight / 2,
+
                 drawWidth,
+
                 drawHeight
             );
 
 
-            ctx.drawImage(
-                frame,
-                0,
-                0,
-                size,
-                size
-            );
+            context.restore();
+
+
+
+            if (
+                selectedFrame &&
+                frameImage.complete
+            ) {
+
+                context.drawImage(
+                    frameImage,
+                    0,
+                    0,
+                    1000,
+                    1000
+                );
+
+            }
+
 
 
             const link =
-            document.createElement(
-                "a"
-            );
+                document.createElement(
+                    "a"
+                );
 
 
             link.download =
-            "profile-frame.png";
+                "profile-frame.png";
 
 
             link.href =
-            canvas.toDataURL(
-                "image/png"
-            );
+                canvas.toDataURL(
+                    "image/png"
+                );
 
 
             link.click();
 
-        };
-
-
-        frame.src =
-        selectedFrame;
-
-    };
-
-
-    photo.src =
-    userPhoto.src;
-
-}
-
-
-/* =========================
-   DRAG PHOTO
-========================= */
-
-let dragging = false;
-
-let startX = 0;
-
-let startY = 0;
-
-
-photoBox.addEventListener(
-"pointerdown",
-function(event) {
-
-    if (!uploadedPhoto) {
-        return;
-    }
-
-    dragging = true;
-
-    startX =
-    event.clientX -
-    photoX;
-
-    startY =
-    event.clientY -
-    photoY;
-
-    photoBox.setPointerCapture(
-        event.pointerId
+        }
     );
-
-});
-
-
-photoBox.addEventListener(
-"pointermove",
-function(event) {
-
-    if (!dragging) {
-        return;
-    }
-
-    photoX =
-    event.clientX -
-    startX;
-
-    photoY =
-    event.clientY -
-    startY;
-
-    updatePhoto();
-
-});
-
-
-photoBox.addEventListener(
-"pointerup",
-function() {
-
-    dragging = false;
-
-});
-
-
-photoBox.addEventListener(
-"pointercancel",
-function() {
-
-    dragging = false;
-
-});
 
 
 </script>
